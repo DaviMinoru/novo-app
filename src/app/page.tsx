@@ -10,7 +10,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Progress } from '@/components/ui/progress'
 import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
-import { Calculator, TrendingUp, Apple, Utensils, Target, Plus, Minus } from 'lucide-react'
+import { Calculator, TrendingUp, Apple, Utensils, Target, Plus, Minus, Zap, Flame, Activity, Award, ChefHat, Dumbbell } from 'lucide-react'
 
 interface UserData {
   weight: number
@@ -155,337 +155,465 @@ export default function BulkingApp() {
   const proteinProgress = dailyProtein > 0 ? (consumedProtein / dailyProtein) * 100 : 0
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-4">
-      <div className="max-w-6xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-2 flex items-center justify-center gap-3">
-            <TrendingUp className="text-blue-600" />
-            BulkMaster
-          </h1>
-          <p className="text-xl text-gray-600">Seu assistente para ganho de massa muscular</p>
-        </div>
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%239C92AC" fill-opacity="0.05"%3E%3Ccircle cx="30" cy="30" r="2"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
+      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-pink-500/10"></div>
+      
+      <div className="relative z-10 p-4 sm:p-6 lg:p-8">
+        <div className="max-w-7xl mx-auto">
+          {/* Header com design moderno */}
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-orange-500 to-pink-600 rounded-2xl mb-6 shadow-2xl">
+              <Dumbbell className="w-10 h-10 text-white" />
+            </div>
+            <h1 className="text-5xl sm:text-6xl font-bold bg-gradient-to-r from-orange-400 via-pink-500 to-purple-600 bg-clip-text text-transparent mb-4">
+              BulkMaster
+            </h1>
+            <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+              Transforme seu corpo com o assistente definitivo para ganho de massa muscular
+            </p>
+            <div className="flex items-center justify-center gap-6 mt-6">
+              <div className="flex items-center gap-2 text-emerald-400">
+                <Award className="w-5 h-5" />
+                <span className="text-sm font-medium">Cientificamente Baseado</span>
+              </div>
+              <div className="flex items-center gap-2 text-blue-400">
+                <Zap className="w-5 h-5" />
+                <span className="text-sm font-medium">Resultados Rápidos</span>
+              </div>
+            </div>
+          </div>
 
-        <Tabs defaultValue="calculator" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-4 lg:w-fit lg:mx-auto">
-            <TabsTrigger value="calculator" className="flex items-center gap-2">
-              <Calculator className="w-4 h-4" />
-              <span className="hidden sm:inline">Calculadora</span>
-            </TabsTrigger>
-            <TabsTrigger value="tracking" className="flex items-center gap-2">
-              <Target className="w-4 h-4" />
-              <span className="hidden sm:inline">Progresso</span>
-            </TabsTrigger>
-            <TabsTrigger value="meals" className="flex items-center gap-2">
-              <Utensils className="w-4 h-4" />
-              <span className="hidden sm:inline">Refeições</span>
-            </TabsTrigger>
-            <TabsTrigger value="foods" className="flex items-center gap-2">
-              <Apple className="w-4 h-4" />
-              <span className="hidden sm:inline">Alimentos</span>
-            </TabsTrigger>
-          </TabsList>
+          <Tabs defaultValue="calculator" className="space-y-8">
+            <TabsList className="grid w-full grid-cols-4 lg:w-fit lg:mx-auto bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-2">
+              <TabsTrigger 
+                value="calculator" 
+                className="flex items-center gap-2 data-[state=active]:bg-gradient-to-r data-[state=active]:from-orange-500 data-[state=active]:to-pink-600 data-[state=active]:text-white rounded-xl transition-all duration-300"
+              >
+                <Calculator className="w-4 h-4" />
+                <span className="hidden sm:inline">Calculadora</span>
+              </TabsTrigger>
+              <TabsTrigger 
+                value="tracking" 
+                className="flex items-center gap-2 data-[state=active]:bg-gradient-to-r data-[state=active]:from-emerald-500 data-[state=active]:to-teal-600 data-[state=active]:text-white rounded-xl transition-all duration-300"
+              >
+                <Target className="w-4 h-4" />
+                <span className="hidden sm:inline">Progresso</span>
+              </TabsTrigger>
+              <TabsTrigger 
+                value="meals" 
+                className="flex items-center gap-2 data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-purple-600 data-[state=active]:text-white rounded-xl transition-all duration-300"
+              >
+                <ChefHat className="w-4 h-4" />
+                <span className="hidden sm:inline">Refeições</span>
+              </TabsTrigger>
+              <TabsTrigger 
+                value="foods" 
+                className="flex items-center gap-2 data-[state=active]:bg-gradient-to-r data-[state=active]:from-red-500 data-[state=active]:to-orange-600 data-[state=active]:text-white rounded-xl transition-all duration-300"
+              >
+                <Apple className="w-4 h-4" />
+                <span className="hidden sm:inline">Alimentos</span>
+              </TabsTrigger>
+            </TabsList>
 
-          {/* Calculadora */}
-          <TabsContent value="calculator">
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Calculator className="text-blue-600" />
-                  Calculadora de Calorias para Bulking
-                </CardTitle>
-                <CardDescription>
-                  Configure seus dados para calcular suas necessidades calóricas diárias
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="weight">Peso (kg)</Label>
-                    <Input
-                      id="weight"
-                      type="number"
-                      value={userData.weight}
-                      onChange={(e) => setUserData({...userData, weight: Number(e.target.value)})}
-                    />
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <Label htmlFor="height">Altura (cm)</Label>
-                    <Input
-                      id="height"
-                      type="number"
-                      value={userData.height}
-                      onChange={(e) => setUserData({...userData, height: Number(e.target.value)})}
-                    />
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <Label htmlFor="age">Idade</Label>
-                    <Input
-                      id="age"
-                      type="number"
-                      value={userData.age}
-                      onChange={(e) => setUserData({...userData, age: Number(e.target.value)})}
-                    />
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <Label>Gênero</Label>
-                    <Select value={userData.gender} onValueChange={(value: 'male' | 'female') => setUserData({...userData, gender: value})}>
-                      <SelectTrigger>
-                        <SelectValue />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="male">Masculino</SelectItem>
-                        <SelectItem value="female">Feminino</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <Label>Nível de Atividade</Label>
-                    <Select value={userData.activityLevel} onValueChange={(value) => setUserData({...userData, activityLevel: value})}>
-                      <SelectTrigger>
-                        <SelectValue />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="sedentary">Sedentário</SelectItem>
-                        <SelectItem value="light">Leve (1-3x/semana)</SelectItem>
-                        <SelectItem value="moderate">Moderado (3-5x/semana)</SelectItem>
-                        <SelectItem value="active">Ativo (6-7x/semana)</SelectItem>
-                        <SelectItem value="very_active">Muito Ativo (2x/dia)</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <Label>Meta de Bulking</Label>
-                    <Select value={userData.goal} onValueChange={(value: 'moderate' | 'aggressive') => setUserData({...userData, goal: value})}>
-                      <SelectTrigger>
-                        <SelectValue />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="moderate">Moderado (+300 cal)</SelectItem>
-                        <SelectItem value="aggressive">Agressivo (+500 cal)</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                </div>
-
-                <Separator />
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <Card className="bg-blue-50 border-blue-200">
-                    <CardContent className="pt-6">
-                      <div className="text-center">
-                        <div className="text-3xl font-bold text-blue-600">{dailyCalories}</div>
-                        <div className="text-sm text-gray-600">Calorias por dia</div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                  
-                  <Card className="bg-green-50 border-green-200">
-                    <CardContent className="pt-6">
-                      <div className="text-center">
-                        <div className="text-3xl font-bold text-green-600">{dailyProtein}g</div>
-                        <div className="text-sm text-gray-600">Proteína por dia</div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </div>
-              </CardContent>
-            </Card>
-          </TabsContent>
-
-          {/* Progresso */}
-          <TabsContent value="tracking">
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Target className="text-green-600" />
-                  Progresso Diário
-                </CardTitle>
-                <CardDescription>
-                  Acompanhe seu consumo de calorias e proteínas
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-3">
-                    <div className="flex justify-between items-center">
-                      <Label className="text-base font-medium">Calorias</Label>
-                      <span className="text-sm text-gray-600">
-                        {consumedCalories} / {dailyCalories} kcal
-                      </span>
+            {/* Calculadora com design aprimorado */}
+            <TabsContent value="calculator">
+              <Card className="bg-white/10 backdrop-blur-lg border border-white/20 shadow-2xl rounded-3xl overflow-hidden">
+                <CardHeader className="bg-gradient-to-r from-orange-500/20 to-pink-600/20 border-b border-white/10">
+                  <CardTitle className="flex items-center gap-3 text-2xl text-white">
+                    <div className="p-2 bg-gradient-to-r from-orange-500 to-pink-600 rounded-xl">
+                      <Calculator className="w-6 h-6 text-white" />
                     </div>
-                    <Progress value={caloriesProgress} className="h-3" />
-                    <div className="text-center">
-                      <Badge variant={caloriesProgress >= 100 ? "default" : "secondary"}>
-                        {Math.round(caloriesProgress)}% da meta
-                      </Badge>
-                    </div>
-                  </div>
-                  
-                  <div className="space-y-3">
-                    <div className="flex justify-between items-center">
-                      <Label className="text-base font-medium">Proteína</Label>
-                      <span className="text-sm text-gray-600">
-                        {consumedProtein} / {dailyProtein}g
-                      </span>
-                    </div>
-                    <Progress value={proteinProgress} className="h-3" />
-                    <div className="text-center">
-                      <Badge variant={proteinProgress >= 100 ? "default" : "secondary"}>
-                        {Math.round(proteinProgress)}% da meta
-                      </Badge>
-                    </div>
-                  </div>
-                </div>
-
-                <Separator />
-
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-                  <div>
-                    <div className="text-2xl font-bold text-blue-600">{consumedCalories}</div>
-                    <div className="text-sm text-gray-600">Consumidas</div>
-                  </div>
-                  <div>
-                    <div className="text-2xl font-bold text-green-600">{dailyCalories - consumedCalories}</div>
-                    <div className="text-sm text-gray-600">Restantes</div>
-                  </div>
-                  <div>
-                    <div className="text-2xl font-bold text-purple-600">{consumedProtein}g</div>
-                    <div className="text-sm text-gray-600">Proteína</div>
-                  </div>
-                  <div>
-                    <div className="text-2xl font-bold text-orange-600">{meals.length}</div>
-                    <div className="text-sm text-gray-600">Refeições</div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </TabsContent>
-
-          {/* Refeições */}
-          <TabsContent value="meals">
-            <div className="space-y-6">
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <Utensils className="text-orange-600" />
-                    Minhas Refeições
+                    Calculadora de Calorias para Bulking
                   </CardTitle>
-                  <CardDescription>
-                    Adicione e gerencie suas refeições diárias
+                  <CardDescription className="text-gray-300 text-lg">
+                    Configure seus dados para calcular suas necessidades calóricas diárias
                   </CardDescription>
                 </CardHeader>
-                <CardContent>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {['Café da Manhã', 'Lanche da Manhã', 'Almoço', 'Lanche da Tarde', 'Jantar', 'Ceia'].map((mealName) => (
-                      <Button
-                        key={mealName}
-                        variant="outline"
-                        size="sm"
-                        onClick={() => addMeal(mealName)}
-                        className="flex items-center gap-1"
-                      >
-                        <Plus className="w-4 h-4" />
-                        {mealName}
-                      </Button>
-                    ))}
+                <CardContent className="p-8 space-y-8">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="space-y-3">
+                      <Label htmlFor="weight" className="text-white font-medium flex items-center gap-2">
+                        <Activity className="w-4 h-4 text-orange-400" />
+                        Peso (kg)
+                      </Label>
+                      <Input
+                        id="weight"
+                        type="number"
+                        value={userData.weight}
+                        onChange={(e) => setUserData({...userData, weight: Number(e.target.value)})}
+                        className="bg-white/10 border-white/20 text-white placeholder-gray-400 rounded-xl h-12 text-lg"
+                      />
+                    </div>
+                    
+                    <div className="space-y-3">
+                      <Label htmlFor="height" className="text-white font-medium flex items-center gap-2">
+                        <TrendingUp className="w-4 h-4 text-blue-400" />
+                        Altura (cm)
+                      </Label>
+                      <Input
+                        id="height"
+                        type="number"
+                        value={userData.height}
+                        onChange={(e) => setUserData({...userData, height: Number(e.target.value)})}
+                        className="bg-white/10 border-white/20 text-white placeholder-gray-400 rounded-xl h-12 text-lg"
+                      />
+                    </div>
+                    
+                    <div className="space-y-3">
+                      <Label htmlFor="age" className="text-white font-medium flex items-center gap-2">
+                        <Award className="w-4 h-4 text-purple-400" />
+                        Idade
+                      </Label>
+                      <Input
+                        id="age"
+                        type="number"
+                        value={userData.age}
+                        onChange={(e) => setUserData({...userData, age: Number(e.target.value)})}
+                        className="bg-white/10 border-white/20 text-white placeholder-gray-400 rounded-xl h-12 text-lg"
+                      />
+                    </div>
+                    
+                    <div className="space-y-3">
+                      <Label className="text-white font-medium">Gênero</Label>
+                      <Select value={userData.gender} onValueChange={(value: 'male' | 'female') => setUserData({...userData, gender: value})}>
+                        <SelectTrigger className="bg-white/10 border-white/20 text-white rounded-xl h-12">
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent className="bg-slate-800 border-slate-600">
+                          <SelectItem value="male">Masculino</SelectItem>
+                          <SelectItem value="female">Feminino</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    
+                    <div className="space-y-3">
+                      <Label className="text-white font-medium">Nível de Atividade</Label>
+                      <Select value={userData.activityLevel} onValueChange={(value) => setUserData({...userData, activityLevel: value})}>
+                        <SelectTrigger className="bg-white/10 border-white/20 text-white rounded-xl h-12">
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent className="bg-slate-800 border-slate-600">
+                          <SelectItem value="sedentary">Sedentário</SelectItem>
+                          <SelectItem value="light">Leve (1-3x/semana)</SelectItem>
+                          <SelectItem value="moderate">Moderado (3-5x/semana)</SelectItem>
+                          <SelectItem value="active">Ativo (6-7x/semana)</SelectItem>
+                          <SelectItem value="very_active">Muito Ativo (2x/dia)</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    
+                    <div className="space-y-3">
+                      <Label className="text-white font-medium">Meta de Bulking</Label>
+                      <Select value={userData.goal} onValueChange={(value: 'moderate' | 'aggressive') => setUserData({...userData, goal: value})}>
+                        <SelectTrigger className="bg-white/10 border-white/20 text-white rounded-xl h-12">
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent className="bg-slate-800 border-slate-600">
+                          <SelectItem value="moderate">Moderado (+300 cal)</SelectItem>
+                          <SelectItem value="aggressive">Agressivo (+500 cal)</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                  </div>
+
+                  <Separator className="bg-white/20" />
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <Card className="bg-gradient-to-br from-orange-500/20 to-pink-600/20 border border-orange-500/30 shadow-xl rounded-2xl overflow-hidden">
+                      <CardContent className="pt-8 pb-8">
+                        <div className="text-center">
+                          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-orange-500 to-pink-600 rounded-2xl mb-4">
+                            <Flame className="w-8 h-8 text-white" />
+                          </div>
+                          <div className="text-4xl font-bold text-white mb-2">{dailyCalories}</div>
+                          <div className="text-orange-200 font-medium">Calorias por dia</div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                    
+                    <Card className="bg-gradient-to-br from-emerald-500/20 to-teal-600/20 border border-emerald-500/30 shadow-xl rounded-2xl overflow-hidden">
+                      <CardContent className="pt-8 pb-8">
+                        <div className="text-center">
+                          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-2xl mb-4">
+                            <Zap className="w-8 h-8 text-white" />
+                          </div>
+                          <div className="text-4xl font-bold text-white mb-2">{dailyProtein}g</div>
+                          <div className="text-emerald-200 font-medium">Proteína por dia</div>
+                        </div>
+                      </CardContent>
+                    </Card>
                   </div>
                 </CardContent>
               </Card>
+            </TabsContent>
 
-              {meals.map((meal) => (
-                <Card key={meal.id}>
-                  <CardHeader className="pb-3">
-                    <div className="flex justify-between items-center">
-                      <CardTitle className="text-lg">{meal.name}</CardTitle>
-                      <div className="flex items-center gap-2">
-                        <Badge variant="secondary">{meal.totalCalories} kcal</Badge>
-                        <Badge variant="secondary">{meal.totalProtein}g proteína</Badge>
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          onClick={() => removeMeal(meal.id)}
+            {/* Progresso com design aprimorado */}
+            <TabsContent value="tracking">
+              <Card className="bg-white/10 backdrop-blur-lg border border-white/20 shadow-2xl rounded-3xl overflow-hidden">
+                <CardHeader className="bg-gradient-to-r from-emerald-500/20 to-teal-600/20 border-b border-white/10">
+                  <CardTitle className="flex items-center gap-3 text-2xl text-white">
+                    <div className="p-2 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-xl">
+                      <Target className="w-6 h-6 text-white" />
+                    </div>
+                    Progresso Diário
+                  </CardTitle>
+                  <CardDescription className="text-gray-300 text-lg">
+                    Acompanhe seu consumo de calorias e proteínas
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="p-8 space-y-8">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div className="space-y-4">
+                      <div className="flex justify-between items-center">
+                        <Label className="text-white font-medium text-lg flex items-center gap-2">
+                          <Flame className="w-5 h-5 text-orange-400" />
+                          Calorias
+                        </Label>
+                        <span className="text-gray-300 font-medium">
+                          {consumedCalories} / {dailyCalories} kcal
+                        </span>
+                      </div>
+                      <div className="relative">
+                        <Progress 
+                          value={caloriesProgress} 
+                          className="h-4 bg-white/10 rounded-full overflow-hidden"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-pink-600 rounded-full" 
+                             style={{width: `${Math.min(caloriesProgress, 100)}%`}}></div>
+                      </div>
+                      <div className="text-center">
+                        <Badge 
+                          variant={caloriesProgress >= 100 ? "default" : "secondary"}
+                          className={`px-4 py-2 text-sm font-medium rounded-full ${
+                            caloriesProgress >= 100 
+                              ? 'bg-gradient-to-r from-emerald-500 to-teal-600 text-white' 
+                              : 'bg-white/20 text-gray-300'
+                          }`}
                         >
-                          <Minus className="w-4 h-4" />
-                        </Button>
+                          {Math.round(caloriesProgress)}% da meta
+                        </Badge>
                       </div>
                     </div>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-2">
-                      {meal.foods.map((item, index) => (
-                        <div key={index} className="flex justify-between items-center p-2 bg-gray-50 rounded">
-                          <span>{item.food.name} x{item.quantity}</span>
-                          <span className="text-sm text-gray-600">
-                            {Math.round(item.food.calories * item.quantity)} kcal
-                          </span>
-                        </div>
-                      ))}
-                      
-                      <div className="flex flex-wrap gap-2 pt-2">
-                        {bulkingFoods.slice(0, 6).map((food) => (
-                          <Button
-                            key={food.name}
-                            variant="outline"
-                            size="sm"
-                            onClick={() => addFoodToMeal(meal.id, food, 1)}
-                            className="text-xs"
-                          >
-                            + {food.name}
-                          </Button>
-                        ))}
+                    
+                    <div className="space-y-4">
+                      <div className="flex justify-between items-center">
+                        <Label className="text-white font-medium text-lg flex items-center gap-2">
+                          <Zap className="w-5 h-5 text-emerald-400" />
+                          Proteína
+                        </Label>
+                        <span className="text-gray-300 font-medium">
+                          {consumedProtein} / {dailyProtein}g
+                        </span>
                       </div>
+                      <div className="relative">
+                        <Progress 
+                          value={proteinProgress} 
+                          className="h-4 bg-white/10 rounded-full overflow-hidden"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-full" 
+                             style={{width: `${Math.min(proteinProgress, 100)}%`}}></div>
+                      </div>
+                      <div className="text-center">
+                        <Badge 
+                          variant={proteinProgress >= 100 ? "default" : "secondary"}
+                          className={`px-4 py-2 text-sm font-medium rounded-full ${
+                            proteinProgress >= 100 
+                              ? 'bg-gradient-to-r from-emerald-500 to-teal-600 text-white' 
+                              : 'bg-white/20 text-gray-300'
+                          }`}
+                        >
+                          {Math.round(proteinProgress)}% da meta
+                        </Badge>
+                      </div>
+                    </div>
+                  </div>
+
+                  <Separator className="bg-white/20" />
+
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div className="text-center p-6 bg-gradient-to-br from-blue-500/20 to-purple-600/20 rounded-2xl border border-blue-500/30">
+                      <div className="text-3xl font-bold text-blue-400 mb-2">{consumedCalories}</div>
+                      <div className="text-blue-200 font-medium">Consumidas</div>
+                    </div>
+                    <div className="text-center p-6 bg-gradient-to-br from-emerald-500/20 to-teal-600/20 rounded-2xl border border-emerald-500/30">
+                      <div className="text-3xl font-bold text-emerald-400 mb-2">{dailyCalories - consumedCalories}</div>
+                      <div className="text-emerald-200 font-medium">Restantes</div>
+                    </div>
+                    <div className="text-center p-6 bg-gradient-to-br from-purple-500/20 to-pink-600/20 rounded-2xl border border-purple-500/30">
+                      <div className="text-3xl font-bold text-purple-400 mb-2">{consumedProtein}g</div>
+                      <div className="text-purple-200 font-medium">Proteína</div>
+                    </div>
+                    <div className="text-center p-6 bg-gradient-to-br from-orange-500/20 to-red-600/20 rounded-2xl border border-orange-500/30">
+                      <div className="text-3xl font-bold text-orange-400 mb-2">{meals.length}</div>
+                      <div className="text-orange-200 font-medium">Refeições</div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
+
+            {/* Refeições com design aprimorado */}
+            <TabsContent value="meals">
+              <div className="space-y-8">
+                <Card className="bg-white/10 backdrop-blur-lg border border-white/20 shadow-2xl rounded-3xl overflow-hidden">
+                  <CardHeader className="bg-gradient-to-r from-blue-500/20 to-purple-600/20 border-b border-white/10">
+                    <CardTitle className="flex items-center gap-3 text-2xl text-white">
+                      <div className="p-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl">
+                        <ChefHat className="w-6 h-6 text-white" />
+                      </div>
+                      Minhas Refeições
+                    </CardTitle>
+                    <CardDescription className="text-gray-300 text-lg">
+                      Adicione e gerencie suas refeições diárias
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="p-8">
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                      {['Café da Manhã', 'Lanche da Manhã', 'Almoço', 'Lanche da Tarde', 'Jantar', 'Ceia'].map((mealName) => (
+                        <Button
+                          key={mealName}
+                          variant="outline"
+                          onClick={() => addMeal(mealName)}
+                          className="flex items-center gap-2 bg-white/10 border-white/20 text-white hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-600 hover:border-transparent transition-all duration-300 rounded-xl h-12"
+                        >
+                          <Plus className="w-4 h-4" />
+                          <span className="text-sm font-medium">{mealName}</span>
+                        </Button>
+                      ))}
                     </div>
                   </CardContent>
                 </Card>
-              ))}
-            </div>
-          </TabsContent>
 
-          {/* Alimentos */}
-          <TabsContent value="foods">
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Apple className="text-red-600" />
-                  Alimentos para Bulking
-                </CardTitle>
-                <CardDescription>
-                  Lista de alimentos ideais para ganho de massa muscular
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {['Proteína', 'Carboidrato', 'Gordura'].map((category) => (
-                    <div key={category} className="space-y-3">
-                      <h3 className="font-semibold text-lg border-b pb-2">{category}s</h3>
-                      {bulkingFoods
-                        .filter(food => food.category === category)
-                        .map((food) => (
-                          <Card key={food.name} className="p-3">
-                            <div className="space-y-2">
-                              <div className="font-medium text-sm">{food.name}</div>
-                              <div className="grid grid-cols-2 gap-2 text-xs text-gray-600">
-                                <div>{food.calories} kcal</div>
-                                <div>{food.protein}g prot</div>
-                                <div>{food.carbs}g carb</div>
-                                <div>{food.fats}g gord</div>
-                              </div>
-                            </div>
-                          </Card>
+                {meals.map((meal) => (
+                  <Card key={meal.id} className="bg-white/10 backdrop-blur-lg border border-white/20 shadow-xl rounded-2xl overflow-hidden">
+                    <CardHeader className="bg-gradient-to-r from-slate-800/50 to-slate-700/50 border-b border-white/10">
+                      <div className="flex justify-between items-center">
+                        <CardTitle className="text-xl text-white flex items-center gap-3">
+                          <Utensils className="w-5 h-5 text-blue-400" />
+                          {meal.name}
+                        </CardTitle>
+                        <div className="flex items-center gap-3">
+                          <Badge className="bg-gradient-to-r from-orange-500 to-pink-600 text-white px-3 py-1 rounded-full">
+                            {meal.totalCalories} kcal
+                          </Badge>
+                          <Badge className="bg-gradient-to-r from-emerald-500 to-teal-600 text-white px-3 py-1 rounded-full">
+                            {meal.totalProtein}g proteína
+                          </Badge>
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            onClick={() => removeMeal(meal.id)}
+                            className="text-red-400 hover:text-red-300 hover:bg-red-500/20 rounded-xl"
+                          >
+                            <Minus className="w-4 h-4" />
+                          </Button>
+                        </div>
+                      </div>
+                    </CardHeader>
+                    <CardContent className="p-6">
+                      <div className="space-y-4">
+                        {meal.foods.map((item, index) => (
+                          <div key={index} className="flex justify-between items-center p-4 bg-white/5 rounded-xl border border-white/10">
+                            <span className="text-white font-medium">{item.food.name} x{item.quantity}</span>
+                            <span className="text-gray-300 font-medium">
+                              {Math.round(item.food.calories * item.quantity)} kcal
+                            </span>
+                          </div>
                         ))}
+                        
+                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 pt-4 border-t border-white/10">
+                          {bulkingFoods.slice(0, 6).map((food) => (
+                            <Button
+                              key={food.name}
+                              variant="outline"
+                              size="sm"
+                              onClick={() => addFoodToMeal(meal.id, food, 1)}
+                              className="bg-white/5 border-white/20 text-white hover:bg-gradient-to-r hover:from-emerald-500 hover:to-teal-600 hover:border-transparent transition-all duration-300 rounded-xl text-xs p-3"
+                            >
+                              + {food.name}
+                            </Button>
+                          ))}
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </TabsContent>
+
+            {/* Alimentos com design aprimorado */}
+            <TabsContent value="foods">
+              <Card className="bg-white/10 backdrop-blur-lg border border-white/20 shadow-2xl rounded-3xl overflow-hidden">
+                <CardHeader className="bg-gradient-to-r from-red-500/20 to-orange-600/20 border-b border-white/10">
+                  <CardTitle className="flex items-center gap-3 text-2xl text-white">
+                    <div className="p-2 bg-gradient-to-r from-red-500 to-orange-600 rounded-xl">
+                      <Apple className="w-6 h-6 text-white" />
                     </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          </TabsContent>
-        </Tabs>
+                    Alimentos para Bulking
+                  </CardTitle>
+                  <CardDescription className="text-gray-300 text-lg">
+                    Lista de alimentos ideais para ganho de massa muscular
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="p-8">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {['Proteína', 'Carboidrato', 'Gordura'].map((category, categoryIndex) => {
+                      const categoryColors = [
+                        'from-red-500 to-orange-600',
+                        'from-blue-500 to-purple-600', 
+                        'from-emerald-500 to-teal-600'
+                      ]
+                      const categoryBorders = [
+                        'border-red-500/30',
+                        'border-blue-500/30',
+                        'border-emerald-500/30'
+                      ]
+                      
+                      return (
+                        <div key={category} className="space-y-4">
+                          <div className={`text-center p-4 bg-gradient-to-r ${categoryColors[categoryIndex]}/20 rounded-2xl border ${categoryBorders[categoryIndex]}`}>
+                            <h3 className="font-bold text-xl text-white">{category}s</h3>
+                          </div>
+                          {bulkingFoods
+                            .filter(food => food.category === category)
+                            .map((food) => (
+                              <Card key={food.name} className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:bg-white/10 transition-all duration-300 hover:scale-105">
+                                <CardContent className="p-4">
+                                  <div className="space-y-3">
+                                    <div className="font-medium text-white text-sm">{food.name}</div>
+                                    <div className="grid grid-cols-2 gap-3 text-xs">
+                                      <div className="flex items-center gap-2 text-orange-300">
+                                        <Flame className="w-3 h-3" />
+                                        {food.calories} kcal
+                                      </div>
+                                      <div className="flex items-center gap-2 text-emerald-300">
+                                        <Zap className="w-3 h-3" />
+                                        {food.protein}g prot
+                                      </div>
+                                      <div className="flex items-center gap-2 text-blue-300">
+                                        <Activity className="w-3 h-3" />
+                                        {food.carbs}g carb
+                                      </div>
+                                      <div className="flex items-center gap-2 text-purple-300">
+                                        <Target className="w-3 h-3" />
+                                        {food.fats}g gord
+                                      </div>
+                                    </div>
+                                  </div>
+                                </CardContent>
+                              </Card>
+                            ))}
+                        </div>
+                      )
+                    })}
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
+          </Tabs>
+        </div>
       </div>
     </div>
   )
